@@ -1,0 +1,15 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Alex Dawkes
+	email = alex@dawkes.org
+[init]
+	defaultBranch = main
+[push]
+	default = current
+[alias]
+	co = checkout
+	st = status
