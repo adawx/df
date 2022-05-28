@@ -1,6 +1,7 @@
 # df
 Dotfiles
 
+Probably missing a bunch of stuff, but will tidy up later, once more lsp/lua stuff is done
 
 Homebrew, ohmyzsh, iterm2, neovim, tmux, starship, git config
 
