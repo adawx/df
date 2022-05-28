@@ -111,6 +111,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 :set shiftwidth=2
 :set autoindent
 :set smartindent
+:set number relativenumber
 
 " rust
 syntax enable
