@@ -37,24 +37,7 @@ require('lspconfig').tsserver.setup {
 }
 
 --Rust lsp
---require('lspconfig').rust_analyzer.setup({
---    capabilities=capabilities,
---    -- on_attach is a callback called when the language server attachs to the buffer
---    -- on_attach = on_attach,
---    settings = {
---      -- to enable rust-analyzer settings visit:
---      -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
---      ["rust-analyzer"] = {
---        -- enable clippy diagnostics on save
---        checkOnSave = {
---          command = "clippy"
---        },
---      }
---    }
---})
-
 local nvim_lsp = require'lspconfig'
-
 local opts = {
     tools = { -- rust-tools options
         autoSetHints = true,
@@ -84,23 +67,11 @@ local opts = {
         }
     },
 }
-
 require('rust-tools').setup(opts)
 
 
---setup golang
---require("lspconfig").gopls.setup(config({
---	cmd = { "gopls", "serve" },
---	settings = {
---		gopls = {
---			analyses = {
---				unusedparams = true,
---			},
---			staticcheck = true,
---		},
---	},
---}))
-
+--golang
+require'lspconfig'.gopls.setup{}
 
 vim.cmd([[nnoremap gd :lua vim.lsp.buf.definition()<CR>]])
 vim.cmd([[nnoremap K :lua vim.lsp.buf.hover()<CR>]])

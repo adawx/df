@@ -17,6 +17,13 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+	"TreeSitter
+	Plug 'nvim-treesitter/nvim-treesitter' 
+
+	"Lf (vim-floaterm has to go 2nd) 
+	Plug 'ptzz/lf.vim'
+	Plug 'voldikss/vim-floaterm'
+
 	"LSP Stuff
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -70,6 +77,17 @@ autocmd vimenter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeShowHidden = 1
+
+" ============================================================================
+" Plugin Config 😡
+" ============================================================================
+
+let g:lf_map_keys = 0
+map <leader>o :Lf<CR>
+let g:NERDTreeHijackNetrw = 0 " Add this line if you use NERDTree
+let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
+
+
 
 " ============================================================================
 " Key Remapping & Generic Vim Config
