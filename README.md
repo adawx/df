@@ -5,7 +5,7 @@ Probably missing a bunch of stuff, but will tidy up later, once more lsp/lua stu
 
 Homebrew, ohmyzsh, iterm2, neovim, tmux, starship, git config, lazygit
 
-`brew install nvm fzf neovim ripgrep rust rust-analyzer jesseduffield/lazygit/lazygit go`
+`brew install nvm fzf neovim ripgrep rust rust-analyzer jesseduffield/lazygit/lazygit go gopls`
 
 `:LspInstall` to install language servers, current installed servers `rust-analyzer, gopls, tsserver, tailwindcss`
 `:TSUpdate` for treesitter

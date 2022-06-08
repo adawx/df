@@ -57,6 +57,14 @@ require("formatter").setup({
                 }
             end,
         },
+	go = {
+            function()
+                return {
+                    exe = "gofmt",
+                    stdin = true,
+                }
+            end,
+        },
     },
 })
 
@@ -64,7 +72,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.lua,*.go FormatWrite
 augroup END
 ]],
     true
