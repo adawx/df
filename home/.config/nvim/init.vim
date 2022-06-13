@@ -30,6 +30,11 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'onsails/lspkind-nvim'
+
+	" vsnip
+	Plug 'hrsh7th/vim-vsnip'
+	Plug 'hrsh7th/vim-vsnip-integ'
+
 	" Plug 'github/copilot.vim'
 	Plug 'nvim-lua/lsp_extensions.nvim'
 	Plug 'williamboman/nvim-lsp-installer'
