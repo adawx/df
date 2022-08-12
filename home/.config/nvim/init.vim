@@ -9,8 +9,13 @@ call plug#begin()
 	Plug 'townk/vim-autoclose'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
-	Plug 'preservim/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
+
+"	Plug 'preservim/nerdtree'
+"	Plug 'Xuyuanp/nerdtree-git-plugin'
+
+	Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+	Plug 'kyazdani42/nvim-tree.lua'
+
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'rbgrouleff/bclose.vim'
 	Plug 'vim-scripts/BufOnly.vim'
@@ -76,12 +81,12 @@ END
 " ============================================================================
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd vimenter * NERDTree
-
-let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeShowHidden = 1
+"autocmd vimenter * NERDTree
+"
+"let g:NERDTreeGitStatusWithFlags = 1
+"let g:NERDTreeShowHidden = 1
 
 " ============================================================================
 " Plugin Config 😡
@@ -89,7 +94,7 @@ let g:NERDTreeShowHidden = 1
 
 let g:lf_map_keys = 0
 map <leader>o :Lf<CR>
-let g:NERDTreeHijackNetrw = 0 " Add this line if you use NERDTree
+"let g:NERDTreeHijackNetrw = 0 " Add this line if you use NERDTree
 let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
 
 
@@ -101,6 +106,11 @@ let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
 " Theme
 set termguicolors
 colorscheme nightfox 
+hi Normal guibg=none
+hi NormalFloat guibg=none
+hi NormalNC guibg=none
+hi NvimTreeWindowPicker guibg=none
+hi NvimTreeNormal guibg=none
 
 "Split Moving
 nnoremap <silent> <C-h> <c-w>h
@@ -110,7 +120,7 @@ nnoremap <silent> <C-j> <c-w>j
 
 " Key Rebinds & Buffer Config
 nnoremap <space> :
-nmap <F7> :NERDTreeToggle<CR>
+nmap <F7> :NvimTreeToggle<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <F8> :Bclose!<CR>
