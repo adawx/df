@@ -32,6 +32,10 @@ require("lualine").setup({
         theme = "nightfox",
         component_separators = "",
         section_separators = { left = "", right = "" },
+        globalstatus = true,
+        ignore_focus = {
+            "NvimTree",
+        },
     },
     sections = {
         lualine_a = {

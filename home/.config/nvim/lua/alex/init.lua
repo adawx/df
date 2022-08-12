@@ -2,6 +2,7 @@ require("alex.lsp-install-config")
 require("alex.lsp")
 require("alex.lualine-config")
 require("alex.formatter-config")
+require("alex.nvim-tree")
 
 P = function(v)
     print(vim.inspect(v))

@@ -77,27 +77,12 @@ require('alex')
 END
 
 " ============================================================================
-" NERDTree Config
-" ============================================================================
-
-autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"autocmd vimenter * NERDTree
-"
-"let g:NERDTreeGitStatusWithFlags = 1
-"let g:NERDTreeShowHidden = 1
-
-" ============================================================================
 " Plugin Config 😡
 " ============================================================================
 
 let g:lf_map_keys = 0
 map <leader>o :Lf<CR>
-"let g:NERDTreeHijackNetrw = 0 " Add this line if you use NERDTree
 let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
-
-
 
 " ============================================================================
 " Key Remapping & Generic Vim Config
