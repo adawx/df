@@ -64,5 +64,5 @@ Finally setup colourschemes for *aesthetics*.
 Current: `duskfox`
 
 TODO:
-- Make lualine prettier
 - Better looking tmux
+- Move init.vim to lua
