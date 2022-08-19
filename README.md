@@ -67,3 +67,5 @@ TODO:
 - Better looking tmux
 - Move init.vim to lua
 - BUILD file autocomplete/format
+- Update to include C formatting & include Clang tools in install process
+- auto copy config 
