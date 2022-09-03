@@ -23,7 +23,8 @@ call plug#begin()
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 	"TreeSitter
-	Plug 'nvim-treesitter/nvim-treesitter' 
+	Plug 'nvim-treesitter/nvim-treesitter'
+	Plug 'nvim-treesitter/nvim-treesitter-context'
 
 	"Lf (vim-floaterm has to go 2nd) 
 	Plug 'ptzz/lf.vim'
