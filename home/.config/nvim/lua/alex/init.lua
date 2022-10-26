@@ -4,6 +4,7 @@ require("alex.lualine-config")
 require("alex.formatter-config")
 require("alex.nvim-tree")
 require("alex.treesitter")
+require("alex.telescope-setup")
 
 P = function(v)
     print(vim.inspect(v))
