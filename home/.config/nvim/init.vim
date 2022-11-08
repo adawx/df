@@ -20,7 +20,7 @@ call plug#begin()
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 	"TreeSitter
-	Plug 'nvim-treesitter/nvim-treesitter'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-context'
 
 	"Lf (vim-floaterm has to go 2nd) 
@@ -111,11 +111,12 @@ nnoremap <F10> :Bclose<CR>
 nnoremap <F11> :wBclose<CR>
 nnoremap <F19> :qa<CR>
 :set hidden
+:set mouse=a
 
-vnoremap <C-y> :w !pbcopy<CR>
-noremap <C-p> :r !pbpaste<CR>
 nnoremap <silent> <leader>fm :Format<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>cf :let @*=expand("%")<CR>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
