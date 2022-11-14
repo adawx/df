@@ -1,47 +1,47 @@
-local cmp = require'cmp'
+local cmp = require("cmp")
 
 cmp.setup({
-   snippet = {
-      expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-      end,
-   },
-   mapping = {
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Tab>'] = function(fallback)
-      if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end,
-      ['<S-Tab>'] = function(fallback)
-      if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end
-   },
-   sources = {
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' },
-      { name = 'buffer' },
-   }
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
+    },
+    mapping = {
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
+        ["<S-Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "vsnip" },
+        { name = "buffer" },
+    },
 })
 
 -- Setup typescript lspconfig.
-require('lspconfig').tsserver.setup {
-   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+require("lspconfig").tsserver.setup({
+    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+})
 
 --Rust lsp
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require("lspconfig")
 local opts = {
     tools = { -- rust-tools options
         autoSetHints = true,
-        hover_with_actions = true,
+        --        hover_with_actions = true,
         inlay_hints = {
             show_parameter_hints = false,
             parameter_hints_prefix = "",
@@ -61,17 +61,16 @@ local opts = {
             ["rust-analyzer"] = {
                 -- enable clippy on save
                 checkOnSave = {
-                    command = "clippy"
+                    command = "clippy",
                 },
-            }
-        }
+            },
+        },
     },
 }
-require('rust-tools').setup(opts)
-
+require("rust-tools").setup(opts)
 
 --golang
-require'lspconfig'.gopls.setup{}
+require("lspconfig").gopls.setup({})
 
 vim.cmd([[nnoremap gd :lua vim.lsp.buf.definition()<CR>]])
 vim.cmd([[nnoremap K :lua vim.lsp.buf.hover()<CR>]])

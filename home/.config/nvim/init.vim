@@ -10,9 +10,6 @@ call plug#begin()
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 
-"	Plug 'preservim/nerdtree'
-"	Plug 'Xuyuanp/nerdtree-git-plugin'
-
 	Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 	Plug 'kyazdani42/nvim-tree.lua'
 
@@ -23,7 +20,7 @@ call plug#begin()
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 	"TreeSitter
-	Plug 'nvim-treesitter/nvim-treesitter'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-context'
 
 	"Lf (vim-floaterm has to go 2nd) 
@@ -114,10 +111,24 @@ nnoremap <F10> :Bclose<CR>
 nnoremap <F11> :wBclose<CR>
 nnoremap <F19> :qa<CR>
 :set hidden
-vnoremap <C-y> :w !pbcopy<CR>
-noremap <C-p> :r !pbpaste<CR>
-nnoremap <silent> <leader>f :Format<CR>
+:set mouse=a
+
+nnoremap <silent> <leader>fm :Format<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>cf :let @*=expand("%")<CR>
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 "Cursor Config
 :set guicursor=a:blinkon250
@@ -136,3 +147,4 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 syntax enable
 filetype plugin indent on
 let g:rustfmt_autosave = 1
+

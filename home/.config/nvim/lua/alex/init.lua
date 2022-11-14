@@ -4,6 +4,10 @@ require("alex.lualine-config")
 require("alex.formatter-config")
 require("alex.nvim-tree")
 require("alex.treesitter")
+require("alex.telescope-setup")
+
+vim.o.updatetime = 250
+vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 P = function(v)
     print(vim.inspect(v))
