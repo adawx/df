@@ -110,6 +110,9 @@ nnoremap <F8> :Bclose!<CR>
 nnoremap <F10> :Bclose<CR>
 nnoremap <F11> :wBclose<CR>
 nnoremap <F19> :qa<CR>
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzz
 :set hidden
 :set mouse=a
 
