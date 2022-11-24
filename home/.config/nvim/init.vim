@@ -3,7 +3,7 @@
 " ============================================================================
 
 call plug#begin()
-	"Sort through to see whats needed
+	" Sort through to see whats needed
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'townk/vim-autoclose'
@@ -18,21 +18,23 @@ call plug#begin()
 	Plug 'vim-scripts/BufOnly.vim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+	Plug 'mbbill/undotree'
 
-	"TreeSitter
+	" TreeSitter
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-context'
 
-	"Lf (vim-floaterm has to go 2nd) 
+	" Lf (vim-floaterm has to go 2nd) 
 	Plug 'ptzz/lf.vim'
 	Plug 'voldikss/vim-floaterm'
 
-	"LSP Stuff
+	" LSP Stuff
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'onsails/lspkind-nvim'
+	Plug 'jparise/vim-graphql'
 
 	" vsnip
 	Plug 'hrsh7th/vim-vsnip'
@@ -42,7 +44,7 @@ call plug#begin()
 	Plug 'nvim-lua/lsp_extensions.nvim'
 	Plug 'williamboman/nvim-lsp-installer'
 
-	"Telescrope reqs
+	" Telescrope reqs
 	Plug 'nvim-lua/popup.nvim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
@@ -51,18 +53,18 @@ call plug#begin()
 	" prettier
 	Plug 'sbdchd/neoformat'
 	
-	"rust
+	" rust
 	Plug 'rust-lang/rust.vim'
 	Plug 'simrat39/rust-tools.nvim'
 	
-	"lualine
+	" Info lines
 	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
-	"Theme
+	" Theme
 	Plug 'EdenEast/nightfox.nvim'
 
-	"Formatting
+	" Formatting
 	Plug 'mhartington/formatter.nvim'
 call plug#end()
 
@@ -106,13 +108,16 @@ nnoremap <space> :
 nmap <F7> :NvimTreeToggle<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nnoremap <F6> :UndotreeToggle<CR>
 nnoremap <F8> :Bclose!<CR>
 nnoremap <F10> :Bclose<CR>
 nnoremap <F11> :wBclose<CR>
 nnoremap <F19> :qa<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+nnoremap <C-o> <C-o>zz
 nnoremap n nzz
+nnoremap N Nzz
 :set hidden
 :set mouse=a
 
@@ -151,3 +156,13 @@ syntax enable
 filetype plugin indent on
 let g:rustfmt_autosave = 1
 
+" winbar
+set winbar=
+set winbar +=%1*\ %n\ %*            "buffer number
+set winbar +=%3*%y%*                "file type
+set winbar +=%4*\ %<%f%*            "full path
+set winbar +=%2*%m%*                "modified flag
+set winbar +=%1*%=%5l%*             "current line
+set winbar +=%2*/%L%*               "total lines
+set winbar +=%1*%4v\ %*             "virtual column number
+set winbar +=%2*0x%04B\ %*          "character under cursor
