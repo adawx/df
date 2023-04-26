@@ -17,7 +17,7 @@ call plug#begin()
 	Plug 'rbgrouleff/bclose.vim'
 	Plug 'vim-scripts/BufOnly.vim'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 	Plug 'mbbill/undotree'
 
 	" TreeSitter
@@ -25,8 +25,8 @@ call plug#begin()
 	Plug 'nvim-treesitter/nvim-treesitter-context'
 
 	" Lf (vim-floaterm has to go 2nd) 
-	Plug 'ptzz/lf.vim'
-	Plug 'voldikss/vim-floaterm'
+"	Plug 'ptzz/lf.vim'
+"	Plug 'voldikss/vim-floaterm'
 
 	" LSP Stuff
 	Plug 'neovim/nvim-lspconfig'
@@ -80,9 +80,9 @@ END
 " Plugin Config 😡
 " ============================================================================
 
-let g:lf_map_keys = 0
-map <leader>o :Lf<CR>
-let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
+" let g:lf_map_keys = 0
+" map <leader>o :Lf<CR>
+" let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
 
 " ============================================================================
 " Key Remapping & Generic Vim Config
@@ -105,10 +105,10 @@ nnoremap <silent> <C-j> <c-w>j
 
 " Key Rebinds & Buffer Config
 nnoremap <space> :
-nmap <F7> :NvimTreeToggle<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <F6> :UndotreeToggle<CR>
+nmap <F7> :NvimTreeToggle<CR>
 nnoremap <F8> :Bclose!<CR>
 nnoremap <F10> :Bclose<CR>
 nnoremap <F11> :wBclose<CR>
@@ -166,3 +166,7 @@ set winbar +=%1*%=%5l%*             "current line
 set winbar +=%2*/%L%*               "total lines
 set winbar +=%1*%4v\ %*             "virtual column number
 set winbar +=%2*0x%04B\ %*          "character under cursor
+
+" do not close the preview tab when switching to other buffers
+let g:mkdp_auto_close = 0
+nmap <F1> <Plug>MarkdownPreview

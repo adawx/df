@@ -106,10 +106,21 @@ export NVM_DIR="$HOME/.nvm"
 alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 alias lg='lazygit'
 
+alias dev-ec2='##############' 
+alias prod-ec2='#############'
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 export AWS_PROFILE=
-export AWS_SDK_LOAD_CONFIG=
+export AWS_SDK_LOAD_CONFIG=true
+
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+# requires kubectl
+source <(kubectl completion zsh)
 
 eval "$(starship init zsh)"

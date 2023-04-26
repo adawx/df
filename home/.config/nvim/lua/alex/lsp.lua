@@ -31,6 +31,7 @@ cmp.setup({
     },
 })
 
+-- Setup typescript lspconfig.
 -- Some logic to tell react .d.ts files to 🖕
 local function filter(arr, fn)
     if type(arr) ~= "table" then
@@ -52,7 +53,6 @@ local function filterReactDTS(value)
     return string.match(value.targetUri, "d.ts") == nil
 end
 
--- Setup typescript lspconfig.
 require("lspconfig").tsserver.setup({
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     handlers = {
