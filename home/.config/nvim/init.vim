@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 	Plug 'mbbill/undotree'
+	Plug 'f-person/git-blame.nvim'
 
 	" TreeSitter
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -40,7 +41,7 @@ call plug#begin()
 	Plug 'hrsh7th/vim-vsnip'
 	Plug 'hrsh7th/vim-vsnip-integ'
 
-	" Plug 'github/copilot.vim'
+	Plug 'github/copilot.vim'
 	Plug 'nvim-lua/lsp_extensions.nvim'
 	Plug 'williamboman/nvim-lsp-installer'
 
