@@ -45,6 +45,15 @@ require("formatter").setup({
                 }
             end,
         },
+        yaml = {
+            function()
+                return {
+                    exe = "prettier",
+                    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
+                    stdin = true,
+                }
+            end,
+        },
         lua = {
             function()
                 return {
@@ -57,7 +66,7 @@ require("formatter").setup({
                 }
             end,
         },
-	go = {
+        go = {
             function()
                 return {
                     exe = "gofmt",
@@ -72,7 +81,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.lua,*.go FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.yml,*.yaml,*.lua,*.go FormatWrite
 augroup END
 ]],
     true
