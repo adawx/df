@@ -6,6 +6,7 @@ require("alex.nvim-tree")
 require("alex.treesitter")
 require("alex.telescope-setup")
 require("alex.git-blame")
+require("alex.colorizer")
 
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])

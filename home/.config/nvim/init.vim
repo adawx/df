@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 	Plug 'mbbill/undotree'
+	Plug 'norcalli/nvim-colorizer.lua'
 	Plug 'f-person/git-blame.nvim'
 
 	" TreeSitter
@@ -69,6 +70,19 @@ call plug#begin()
 	Plug 'mhartington/formatter.nvim'
 call plug#end()
 
+
+" ============================================================================
+" Theme Config
+" ============================================================================
+
+set termguicolors
+colorscheme nightfox 
+hi Normal guibg=none
+hi NormalFloat guibg=none
+hi NormalNC guibg=none
+hi NvimTreeWindowPicker guibg=none
+hi NvimTreeNormal guibg=none
+
 " ============================================================================
 " Lua Config
 " ============================================================================
@@ -88,15 +102,6 @@ END
 " ============================================================================
 " Key Remapping & Generic Vim Config
 " ============================================================================
-
-" Theme
-set termguicolors
-colorscheme nightfox 
-hi Normal guibg=none
-hi NormalFloat guibg=none
-hi NormalNC guibg=none
-hi NvimTreeWindowPicker guibg=none
-hi NvimTreeNormal guibg=none
 
 "Split Moving
 nnoremap <silent> <C-h> <c-w>h
