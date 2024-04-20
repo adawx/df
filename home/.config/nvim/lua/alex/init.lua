@@ -11,6 +11,12 @@ require("alex.colorizer")
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
+-- Copilot settings
+vim.g.copilot_assume_mapped = true
+vim.api.nvim_set_keymap("i", "<C-l>", "copilot#Accept('<CR>')", { expr = true, silent = true })
+vim.keymap.set("i", "<C-j>", "copilot#Next()", { expr = true, silent = true })
+vim.keymap.set("i", "<C-k>", "copilot#Previous()", { expr = true, silent = true })
+
 P = function(v)
     print(vim.inspect(v))
     return v
