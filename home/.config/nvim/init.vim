@@ -64,7 +64,10 @@ call plug#begin()
 	Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
 	" Theme
-	Plug 'EdenEast/nightfox.nvim'
+	Plug 'sheerun/vim-polyglot'
+	"Plug 'EdenEast/nightfox.nvim'
+	"Plug 'folke/tokyonight.nvim'
+	Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
 	" Formatting
 	Plug 'mhartington/formatter.nvim'
@@ -76,7 +79,14 @@ call plug#end()
 " ============================================================================
 
 set termguicolors
-colorscheme nightfox 
+
+if exists('+termguicolors')
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+      set termguicolors
+endif
+
+colorscheme spaceduck
 hi Normal guibg=none
 hi NormalFloat guibg=none
 hi NormalNC guibg=none

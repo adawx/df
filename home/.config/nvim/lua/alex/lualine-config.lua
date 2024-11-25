@@ -29,7 +29,7 @@ local bubbles_theme = {
 
 require("lualine").setup({
     options = {
-        theme = "nightfox",
+        theme = "spaceduck",
         component_separators = "",
         section_separators = { left = "", right = "" },
         globalstatus = true,
