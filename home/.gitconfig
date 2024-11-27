@@ -4,8 +4,8 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [user]
-	name = Alex Dawkes
-	email = alex@dawkes.org
+	name = 
+	email = 
 [init]
 	defaultBranch = main
 [push]
@@ -13,3 +13,5 @@
 [alias]
 	co = checkout
 	st = status
+[pull]
+	rebase = true
