@@ -5,22 +5,22 @@ right_format = """$all"""
 
 #command_timeout = 1000
 
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
-[[battery.display]]
-threshold = 10
-style = "bold red"
-
-[[battery.display]]
-threshold = 60
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 100
-style = "bold green"
+#[battery]
+#full_symbol = "F"
+#charging_symbol = "C"
+#discharging_symbol = "D"
+#
+#[[battery.display]]
+#threshold = 10
+#style = "bold red"
+#
+#[[battery.display]]
+#threshold = 60
+#style = "bold yellow"
+#
+#[[battery.display]]
+#threshold = 100
+#style = "bold green"
 
 [character]
 success_symbol = "[💎](bold green)"
@@ -125,7 +125,7 @@ format = "[$user]($style) "
 
 [time]
 time_format = "%T"
-format = " $time($style) "
+format = "⌚$time($style) "
 style = "bright-white"
 disabled = false
 
