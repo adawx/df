@@ -17,6 +17,9 @@ Requires Vim-Plug
 `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
 
+Swapping to Lazy - Ongoing
+Requires luarocks `brew install luarocks`
+
 Requires TPM
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
@@ -34,6 +37,9 @@ Then install oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/o
 At this point we can go about installing a bunch of the above software before customising zsh. Importantly if its a new dev environment then languague/dev specific tool also need installing.
 
 Below are important ones
+- Homebrew
+- nvm
+- Ghostty
 `fzf ripgrep neovim tmux rust cargo`
 
 `sudo npm install -g nvm`
@@ -49,7 +55,7 @@ Install Starship & lazygit here.
 Copy across .zshrc and .zshenv
 Copy across starship and stylua config
 
-Worth installing a nerd font at this stage. Otherwise the starship config will look like missingno. Droid Sans Mono is the go to.
+Worth installing a nerd font at this stage. Otherwise the starship config will look like missingno. Droid Sans Mono is the go to. Think ghostty has one built in. Make sure ghostty config is working here.
 
 ```
 mkdir -p ~/.local/share/fonts
@@ -57,17 +63,12 @@ mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete Mono.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf
 ```
 
-Now we need to install Vim-Plug to manage neovim plugins. (Look into auto install?)
-`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-
-Now we can go through setting up our nvim config, should just be able to copy across.
+Copy neovim config. Lazy.nvim should take care of setup/install. Might need to disable `core` import in `init.lua` to get lazy.nvim to work on first run.
 
 Finally setup colourschemes for *aesthetics*.
-Current: `duskfox`
+Current: `spaceduck`
 
 TODO:
-- Move init.vim to lua
 - BUILD file autocomplete/format
 - Update to include C formatting & include Clang tools in install process
 - auto copy config 

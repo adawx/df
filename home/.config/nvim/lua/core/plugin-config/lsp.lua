@@ -53,7 +53,7 @@ local function filterReactDTS(value)
     return string.match(value.targetUri, "d.ts") == nil
 end
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     handlers = {
         ["textDocument/definition"] = function(err, result, method, ...)
@@ -102,6 +102,13 @@ require("rust-tools").setup(opts)
 
 --golang
 require("lspconfig").gopls.setup({})
+
+--flutter
+require("flutter-tools").setup({
+    lsp = { settings = { lineLength = 120 } },
+})
+
+require("tailwind-tools").setup({})
 
 vim.cmd([[nnoremap gd :lua vim.lsp.buf.definition()<CR>]])
 vim.cmd([[nnoremap K :lua vim.lsp.buf.hover()<CR>]])

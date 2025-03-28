@@ -54,6 +54,15 @@ require("formatter").setup({
                 }
             end,
         },
+        dart = {
+            function()
+                return {
+                    exe = "dart",
+                    args = { "format", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+                    stdin = false,
+                }
+            end,
+        },
         lua = {
             function()
                 return {
@@ -81,7 +90,7 @@ vim.api.nvim_exec(
     [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.yml,*.yaml,*.lua,*.go FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.yml,*.yaml,*.lua,*.go,*.dart FormatWrite
 augroup END
 ]],
     true
